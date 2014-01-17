@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<div class="content">
+  <article itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header>
+      <h2 itemprop="name headline">{{ page.title }}</h2>
+      <div itemprop="image">
+        <img itemprop="thumbnailUrl" src="/assets/img/{{ page.thumbnailUrl }}" />
+      </div>        
+    </header>
+    
+    <div class="post-info">
+      <ul>
+        <li itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/authors/{{ page.author | downcase | replace:' ','-' }}/" itemprop="url">
+            <i class="icon icon-user"></i>
+            <span itemprop="name">{{ page.author }}</span>
+          </a>        
+        </li>
+        <li itemprop="datePublished">
+          <i class="icon icon-time"></i>
+          <span><time datetime="{{ page.date }}">{{ page.date | date: "%b %d, %Y" }}</time></span>
+        </li>
+      </ul>
+    </div>
+    
+    <div itemprop='articleBody'>
+      {{ content }}
+    </div>
+    
+  </article>
+</div>
+
+{% include sidebar.html %} 

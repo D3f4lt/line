@@ -1,0 +1,39 @@
+$content_width: 700px;
+
+/* Footer */
+footer#bottom {
+  nav {
+    width: $content_width;
+    margin: 0 auto;
+  }
+}
+
+/* Container */
+.container {
+  width: $content_width;
+  margin: 1.250em auto;
+}
+
+/* Post */
+article[itemtype="http://schema.org/BlogPosting"] {
+  header {
+    div[itemprop="image"] {
+      float: left;
+      display: inline;
+      width: 12.500em;
+      margin-right: 1.250em;
+      margin-bottom: 1.250em;    
+    }
+  }
+
+  div.summary {
+    padding: 0;
+    float: left;
+    display: inline;
+    width: $content_width - 260px;
+  }  
+  
+  footer {
+    clear: both;
+  }
+}

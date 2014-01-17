@@ -1,0 +1,26 @@
+---
+layout: nil
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Line</title>
+  <link href="/atom.xml" rel="self" />
+  <link href="https://github.com/lpolepeddi/line"/>
+  <updated>{{site.time | date_to_xmlschema }}</updated>
+  <id>https://github.com/lpolepeddi</id>
+  
+  {% for post in site.posts %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="/{{ post.url }}" />
+    <updated>{{post.date | date_to_xmlschema }}</updated>
+    <id>{{ post.id }}</id>
+    <content type="html">
+      {{ post.content | split_content_with_message: post.url }}
+    </content>
+  </entry>
+  {% endfor %}
+
+</feed>

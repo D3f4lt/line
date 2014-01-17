@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<div class="content">
+  <div class="author">
+    <header itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <h2 itemprop="name">{{ page.title }}</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/{{ page.github }}" itemprop="url">
+            <i class="icon icon-github"></i>
+          </a>        
+        </li>
+        <li>
+          <a href="https://twitter.com/{{ page.twitter }}" itemprop="url">
+            <i class="icon icon-twitter"></i>
+          </a>        
+        </li>
+      </ul>
+    </header>
+    <div itemprop="description">
+      {{ content }}
+    </div>
+  </div>
+  
+  {% for post in site.tags[page.title] %}
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header>
+        <div itemprop="image">
+          <img itemprop="thumbnailUrl" src="/assets/img/{{ post.thumbnailUrl }}" />
+        </div>
+        <a href="{{ post.url }}" itemprop="url">
+          <h2 itemprop="name headline">{{ post.title }}</h2>
+        </a>
+      </header>
+
+      <div class="summary">
+        <ul>
+          <li itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            <a href="/authors/{{ post.author | downcase | replace:' ','-' }}/" itemprop="url">
+              <i class="icon icon-user"></i>
+              <span itemprop="name">{{ post.author }}</span>
+            </a>        
+          </li>
+          <li itemprop="datePublished">
+            <i class="icon icon-time"></i>
+            <span><time datetime="{{ post.date }}">{{ post.date | date: "%b %d, %Y" }}</time></span>
+          </li>
+        </ul>
+        <div itemprop="description">
+          <p>{{ post.content | split_content }}</p>
+        </div>
+        <a class="read-btn" href="{{ post.url }}">Read</a>
+      </div>
+      
+    </article>    
+  {% endfor %}
+</div>
+
+{% include sidebar.html %}

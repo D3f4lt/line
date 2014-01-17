@@ -1,0 +1,62 @@
+$container_width: 1150px;
+$content_width: ($container_width - 35px) / 1.375;
+$sidebar_width: ($container_width - 35px) - $content_width;
+
+/* Header */
+header#top {
+  h1 {
+    text-align: left;
+    width: $container_width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Footer */
+footer#bottom {
+  nav {
+    width: $container_width;
+    margin: 0 auto;
+  }
+}
+
+/* Container */
+.container {
+  width: $container_width;
+  margin: 1.250em auto;
+}
+
+.content {
+  float: left;
+  width: $content_width;
+  margin-bottom: 3.125em;
+}
+
+aside[itemtype="http://schema.org/WPSideBar"] {
+  float: right;
+  width: $sidebar_width;
+  margin-bottom: 3.125em;
+}
+
+/* Post */
+article[itemtype="http://schema.org/BlogPosting"] {
+  div.summary {
+    width: $content_width - 260px;
+  }
+}
+
+/* Widgets */
+.widget-follow {
+  ul {
+    height: 3.875em;
+    
+    li {
+      width: ($sidebar_width - 50px) / 3;
+      text-align: center;
+      
+      span {
+        display: block;
+      }
+    }
+  }
+}

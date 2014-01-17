@@ -1,0 +1,47 @@
+$container_width: 1700px;
+$content_width: ($container_width - 35px) / 1.375;
+$sidebar_width: ($container_width - 35px) - $content_width;
+
+/* Header */
+header#top {
+  h1 {
+    width: $container_width;
+  }
+}
+
+/* Footer */
+footer#bottom {
+  nav {
+    width: $container_width;
+  }
+}
+
+/* Container */
+.container {
+  width: $container_width;
+}
+
+.content {
+  width: $content_width;
+}
+
+aside[itemtype="http://schema.org/WPSideBar"] {
+  width: $sidebar_width;
+}
+
+/* Post */
+article[itemtype="http://schema.org/BlogPosting"] {
+  div.summary {
+    width: $content_width - 260px;
+  }
+}
+
+/* Widgets */
+.widget-follow {
+  ul {
+    li {
+      width: ($sidebar_width - 50px) / 3;
+      text-align: center;
+    }
+  }
+}
